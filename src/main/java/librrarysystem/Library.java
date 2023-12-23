@@ -4,8 +4,10 @@
  */
 package librrarysystem;
 
-import Peopole.Student;
+import Peopole.*;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,29 +15,44 @@ import java.util.Scanner;
  *
  * @author Jessuse
  */
-public class Library {
+public class Library implements Serializable{
 
     private ArrayList<Book> books;
     private ArrayList<Student> students;
     Scanner input = new Scanner(System.in);
     Scanner in = new Scanner(System.in);
     Student s = new Student();
-
-    public Library() {
-        books = new ArrayList<>();
-        students = new ArrayList<>();
-    }
-
     private Book book;
     private Student student;
     private LocalDate dueDate;
     private static final int MAX_BOOKS_ALLOWED = 3;
-
+  
+    public Library() {
+        books = new ArrayList<>();
+        students = new ArrayList<>();
+    }
+    
     public void addBook(Book book) {
         books.add(book);
-
     }
 
+    public void addStudent(){
+        System.out.println("enter the student id");
+        int ID=in.nextInt();
+        System.out.println("enter the student name");
+        String name=in.nextLine();
+        System.out.println("enter the student addres");
+        String addres=in.nextLine();
+        System.out.println("enter the student major");
+        String major=in.nextLine();
+        int day1 = in.nextInt();
+        int month1 = in.nextInt();
+        int year1 = in.nextInt();
+        BirthDate bd = new BirthDate(day1,month1,year1);
+        Student std = new Student(ID,name,addres,major,bd);
+        students.add(std);
+    }
+    
     public void searchByTitle(String Title) {
         for (Book book : books) {
             if (book.getTitle().equals(Title)) {
@@ -68,7 +85,7 @@ public class Library {
 
     }
 
-    //
+    
     public Book searchByNo(int no) {
         for (Book book : books) {
             if (book.getNo() == no) {
@@ -143,7 +160,7 @@ public class Library {
             switch (choice) {
                 case 1:
                     book();
-
+                    addStudent();
                     break;
 
                 case 2:

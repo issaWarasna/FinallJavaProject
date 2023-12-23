@@ -4,15 +4,19 @@
  */
 package Peopole;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jessuse
  */
-public class BirthDate {
+public class BirthDate implements Serializable{
     private int day;
     private int month;
     private int year;
 
+    public BirthDate(){}
+    
     public BirthDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
@@ -32,7 +36,7 @@ public class BirthDate {
     }
 
     public void setMonth(int month) {
-        this.month = month;
+        this.month = month >= 1 && month <= 12 ? month : 1;
     }
 
     public int getYear() {
@@ -45,7 +49,7 @@ public class BirthDate {
 
     @Override
     public String toString() {
-        return "BirthDate{" + "day=" + day + ", month=" + month + ", year=" + year + '}';
+        return " BirthDate ("  + day + " / " + month + " / " + year +')';
     }
     
 }

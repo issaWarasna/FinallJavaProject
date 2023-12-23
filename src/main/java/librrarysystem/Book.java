@@ -4,22 +4,24 @@
  */
 package librrarysystem;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author Jessuse
  */
-public class Book implements Display{
+public class Book implements Display ,Serializable{
     private String Title;
     private String Genre;
     private String Version;
     protected int No;
     private date date;
-    private LocalDate dueDate;
     private boolean onLoan;
     private String auther;
 
+    public Book(){}
+    
     
     public Book(String Title, String Genre, String Version, int No, date date, String auther) {
         this.Title = Title;
@@ -87,7 +89,7 @@ public class Book implements Display{
     
     @Override
     public String getInfo() {
-        return "Book : " + "Title=" + Title + ", Genre=" + Genre + ", Version=" + Version + ", No=" + No + ", date=" + date + ", auther=" + auther ;
+        return "Book Title : " + Title + "\nBook Genre: " + Genre + "\nBook Version: " + Version + "\nBook No: " + No + "\nBook date:" + date + "\nBook auther :" + auther ;
     }
     
     @Override

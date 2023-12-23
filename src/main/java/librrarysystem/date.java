@@ -4,11 +4,13 @@
  */
 package librrarysystem;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jessuse
  */
-public class date {
+public class date implements Serializable{
      private int day;
     private int month;
     private int year;
@@ -26,7 +28,7 @@ public class date {
     }
 
     public void setDay(int day) {
-        this.day = day;
+        this.day = day >= 1 && day <= 30 ? day : 1;
     }
 
     public int getMonth() {
@@ -34,7 +36,7 @@ public class date {
     }
 
     public void setMonth(int month) {
-        this.month = month;
+        this.month = month >= 1 && month <= 12 ? month : 1;
     }
 
     public int getYear() {
@@ -47,6 +49,6 @@ public class date {
 
     @Override
     public String toString() {
-        return  "day=" + day + " , month=" + month + " , year=" + year ;
+        return  "date : (" + day + " /" + month + " /" + year+')' ;
     }
 }

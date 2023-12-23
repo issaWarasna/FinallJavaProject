@@ -4,21 +4,23 @@
  */
 package Peopole;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import librrarysystem.Book;
 /**
  *
  * @author Jessuse
  */
-public class Student {
+public class Student implements Serializable{
     private  int ID;
     private String name;
     private String addres;
     private String Major;
     private BirthDate bd;
     private ArrayList<Book> loaned;
+    private ArrayList<Student> loaneds;
+   
     private static final int MAX_BOOKS_ALLOWED = 3;
-    
     public Student(){}
     
     
@@ -29,15 +31,21 @@ public class Student {
         this.addres = addres;
         this.Major = Major;
         this.bd = bd;
-       this.loaned = new ArrayList<>();
+        this.loaned = new ArrayList<>();
+        this.loaneds = new ArrayList<>();
+       
     }
+
+
 
     public ArrayList<Book> getLoaned() {
         return loaned;
     }
 
      
-    
+    public ArrayList<Student> getLoaneds() {
+        return loaneds;
+    }
     
     
     public int getID() {
@@ -82,20 +90,21 @@ public class Student {
 
     
     public String getInfo() {
-        return "Student{" + "ID=" + ID + ", name=" + name + ", addres=" + addres + ", Major=" + Major + ", bd=" + bd + '}';
+        return "Student ID :" + ID + "\nStudentname=" + name + "\nStudent addres : " + addres + "\nStudent Major : " + Major + "\nStudent bd : " + bd ;
     }
     
-    public boolean loanBook(Book book) {
-    if (loaned.size() < MAX_BOOKS_ALLOWED && !book.inLoan()) {
-      loaned.add(book);
-      book.setOnLoan(true);
-        System.out.println("book loaned succefully");
-      return true;
-    } else {
-        System.out.println("not");
-      return false;
-    }
-  }
-    
+//    public boolean loanBook(Book book) {
+//    if (loaneds.size() < MAX_BOOKS_ALLOWED && !book.inLoan()) {
+//      loaned.add(book);
+//      book.setOnLoan(true);
+//        System.out.println("book loaned succefully");
+//      return true;
+//    } else {
+//        System.out.println("not");
+//      return false;
+//    }
+//  }
+  
+
     
 }
