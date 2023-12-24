@@ -364,7 +364,7 @@ public class Loan extends javax.swing.JFrame {
                   
         new loanbook().setVisible(true);
         this.dispose();
-        
+        //loanButton.setEnabled(true);
     }//GEN-LAST:event_loanbookButtonActionPerformed
 
     /**

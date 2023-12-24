@@ -4,18 +4,22 @@
  */
 package librrarysystem;
 import Peopole.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Jessuse
  */
-public class loaned {
+public class loaned implements Serializable{
     private int bookno;
     private int studid;
     private String studname;
     private String bookname;
 
+    
+    public loaned(){}
+    
     public loaned(int bookno, int studid, String studname ,String bookname) {
         this.bookno = bookno;
         this.studid = studid;
@@ -65,7 +69,7 @@ public class loaned {
    
     @Override
     public String toString() {
-        return studname+" with " +studid+ " ID" +" has loaned "+bookname+" and No "+bookno;
+        return studname+" with " +studid+ " ID" +" has loaned "+bookname+" with No "+bookno;
     }
 
    
